@@ -19,13 +19,13 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module Task3_top(
-    input logic BTNC,                        // Clock input for the entire system
-    input logic CPU_RESETN,                     // Asynchronous reset for the system
-    input logic BTNR,                          // idle to init
+    input wire CLK100MHZ,                        // Clock input for the entire system
+    input wire CPU_RESETN,                     // Asynchronous reset for the system
+    input wire BTNR,                          // idle to init
 //    input wire [7:0] Xc,                   // X-coordinate center input for Task3 79
 //    input wire [6:0] Yc,                   // Y-coordinate center input for Task3 59
     //input wire [7:0] r,                    // Radius input for Task3 6-bit sw 3-7 from input
-   input logic[7:0]SW,
+   input wire[7:0]SW,                    // color = SW[7:5]   r = SW[4:0
    // input logic [2:0] color,                // Pixel color input for VGA cor\
    output logic [3:0] VGA_R,               // VGA red channel
     output logic [3:0] VGA_G,               // VGA green channel
@@ -47,7 +47,7 @@ logic [5:0]r ;
 assign b=BTNR ; 
 
 logic clk,reset ; 
-assign clk = BTNC;
+assign clk = CLK100MHZ;
 assign reset = CPU_RESETN ; 
 
 logic plot ; 

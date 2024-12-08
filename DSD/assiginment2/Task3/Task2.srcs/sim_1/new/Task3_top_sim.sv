@@ -33,7 +33,7 @@ module Task3_top_sim;
     logic BTNC=0;
     // Instantiate the Task3_top module
     Task3_top uut (
-        .BTNC(BTNC),
+        .CLK100MHZ(BTNC),
         .CPU_RESETN(CPU_RESETN),
         .BTNR(BTNR),
         .SW(SWt),
@@ -59,7 +59,7 @@ module Task3_top_sim;
         CPU_RESETN = 1; // Release reset
         #15
         BTNR = 1;          // Stay in idle
-        SWt = 8'b01010101;  // Radius = 5, Color = Green
+        SWt = 8'b10000101;  // Radius = 5, Color = Green=10
 
         #10 BTNR = 1;       // Transition to init state
         #20 BTNR = 0;       // Back to idle

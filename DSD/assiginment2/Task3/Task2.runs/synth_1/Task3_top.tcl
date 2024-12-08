@@ -24,20 +24,20 @@ create_project -in_memory -part xc7a100tcsg324-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.cache/wt [current_project]
-set_property parent.project_path /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.xpr [current_project]
+set_property webtalk.parent_dir /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.cache/wt [current_project]
+set_property parent.project_path /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
-set_property ip_output_repo /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.cache/ip [current_project]
+set_property ip_output_repo /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
-  /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.srcs/sources_1/new/Task2.sv
-  /home/it/chipxprt/Reda_raid/DSD/assignment2/vga-core/vga_core.sv
-  /home/it/chipxprt/Reda_raid/DSD/assignment2/vga-core/video_memory.sv
-  /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.srcs/sources_1/new/Task3_top.sv
+  /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/new/Task2.sv
+  /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/imports/vga-core-main/vga_core.sv
+  /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/imports/vga-core-main/video_memory.sv
+  /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/new/Task3_top.sv
 }
-read_verilog -library xil_defaultlib /home/it/chipxprt/Reda_raid/DSD/assignment2/vga-core/vga_controller.v
+read_verilog -library xil_defaultlib /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/imports/vga-core-main/vga_controller.v
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

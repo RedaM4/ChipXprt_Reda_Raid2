@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Thu Dec  5 16:13:33 2024
-# Process ID: 289145
-# Current directory: /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.runs/synth_1
+# Start of session at: Sun Dec  8 15:05:12 2024
+# Process ID: 436805
+# Current directory: /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.runs/synth_1
 # Command line: vivado -log Task3_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Task3_top.tcl
-# Log file: /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.runs/synth_1/Task3_top.vds
-# Journal file: /home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.runs/synth_1/vivado.jou
+# Log file: /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.runs/synth_1/Task3_top.vds
+# Journal file: /home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source Task3_top.tcl -notrace

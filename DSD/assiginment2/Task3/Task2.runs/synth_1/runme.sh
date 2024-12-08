@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/it/chipxprt/Reda_raid/DSD/assignment2/Task3/Task2.runs/synth_1'
+HD_PWD='/home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
