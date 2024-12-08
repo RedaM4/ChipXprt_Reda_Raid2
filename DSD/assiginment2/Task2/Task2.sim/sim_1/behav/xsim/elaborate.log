@@ -1,0 +1,22 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /home/cenema/Desktop/Xilinx/Vivado/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 72b753a0421742a49472bbc56b7bef51 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Task2_top_sim_behav xil_defaultlib.Task2_top_sim xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'up_down' [/home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/new/Task2_dp.sv:72]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'up_down' [/home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/new/Task2_dp.sv:74]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Task2_fsm
+Compiling module xil_defaultlib.nBits_up_down_counter(n=20)
+Compiling module xil_defaultlib.nBits_comparator(n=20)
+Compiling module xil_defaultlib.nBits_up_down_counter(n=10)
+Compiling module xil_defaultlib.nBits_comparator(n=10)
+Compiling module xil_defaultlib.n_2x1mux(n=3)
+Compiling module xil_defaultlib.dFlipFlop
+Compiling module xil_defaultlib.Task2_dp
+Compiling module xil_defaultlib.Task2_top_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Task2_top_sim_behav
