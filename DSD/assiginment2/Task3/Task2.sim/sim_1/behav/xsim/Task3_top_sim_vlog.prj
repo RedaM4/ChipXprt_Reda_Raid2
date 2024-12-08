@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../vga-core/vga_controller.v" \
+
+sv xil_defaultlib  \
+"../../../../Task2.srcs/sources_1/new/Task2.sv" \
+"../../../../Task2.srcs/sources_1/new/Task3_top.sv" \
+"../../../../../vga-core/vga_core.sv" \
+"../../../../../vga-core/video_memory.sv" \
+"../../../../Task2.srcs/sim_1/new/Task3_top_sim.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
