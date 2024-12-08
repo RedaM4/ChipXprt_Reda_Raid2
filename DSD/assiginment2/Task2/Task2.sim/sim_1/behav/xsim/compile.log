@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/new/Task2_dp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Task2_dp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/new/Task2_fsm.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Task2_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/cBits_comparator.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nBits_comparator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/dFlipFlop.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dFlipFlop
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/nBits_up_down_counter.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nBits_up_down_counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/n_2x1mux.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module n_2x1mux
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sim_1/new/Task2_top_sim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Task2_top_sim
