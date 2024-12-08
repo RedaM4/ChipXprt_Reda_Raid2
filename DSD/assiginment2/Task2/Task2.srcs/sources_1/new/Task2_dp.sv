@@ -43,7 +43,7 @@ module Task2_dp(
     );
     
     localparam xCount=160;
-    localparam yCount=120;
+    localparam yCount=121;
     
     
     logic [$clog2(xCount)-1:0]countX;

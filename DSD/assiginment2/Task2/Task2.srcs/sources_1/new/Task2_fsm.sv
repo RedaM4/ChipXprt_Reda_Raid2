@@ -7,30 +7,32 @@ module Task2_fsm(
     input logic button2,
     input logic f,
     output logic black,
-    output logic c1en
+    output logic c1en,
+    output logic [2:0]stateSig
     );
     
     
-    typedef enum logic [2:0] {IDLE,COLOR,BLACK} state;
+    typedef enum logic [1:0] {IDLE,COLOR,BLACK} state;
     state current_state,next_state;
     
     //next_state block
     always_comb begin
         case(current_state)
-            IDLE:   if(button1==1'b1 & button2==1'b0)
+            IDLE:   if(button1)
                         next_state=COLOR;
-                    else if (button1==1'b0 & button2==1'b1)
+                    else if (button2)
                         next_state=BLACK;
                     else
                         next_state=IDLE;
-            COLOR:  if(f==1'b1)
+            COLOR:  if(f)
                         next_state=IDLE;
                     else
                         next_state=COLOR;
-            BLACK:  if(f==1'b1)
+            BLACK:  if(f)
                         next_state=IDLE;
                     else
                         next_state=BLACK;
+             default: next_state = IDLE;
          endcase
      end
             
@@ -50,20 +52,12 @@ module Task2_fsm(
     
     //output logic block
     always_comb begin
-        if(current_state==BLACK)begin
-            black=1'b1;
-            c1en=1'b0;
-        end
-        
-        else if(current_state==COLOR)begin
-            black=1'b0;
-            c1en=1'b1;
-        end
-        
-        else begin
-            black=1'b0;
-            c1en=1'b0;
-        end
+        case(current_state)
+            BLACK: begin black=1'b1; c1en=1'b1; stateSig=2'b01; end
+            COLOR: begin black=1'b0; c1en=1'b1; stateSig=2'b10; end
+            IDLE : begin black=1'b0; c1en=1'b0; stateSig=2'b11; end
+            default: begin black=1'b0; c1en=1'b0; stateSig=2'b11; end
+        endcase
      end
      
     endmodule

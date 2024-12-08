@@ -60,26 +60,23 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-276733-Raid-ThinkTank/incrSyn
   set_param xicom.use_bs_reader 1
   set_param chipscope.maxJobs 4
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.cache/wt [current_project]
-  set_property parent.project_path /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.xpr [current_project]
-  set_property ip_output_repo /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.cache/wt [current_project]
+  set_property parent.project_path /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.xpr [current_project]
+  set_property ip_output_repo /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.runs/synth_1/Task2_top.dcp
-  read_xdc /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/constrs_1/imports/M3L5.srcs/consts.xdc
+  add_files -quiet /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.runs/synth_1/Task2_top.dcp
+  read_xdc /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/constrs_1/imports/M3L5.srcs/consts.xdc
   link_design -top Task2_top -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

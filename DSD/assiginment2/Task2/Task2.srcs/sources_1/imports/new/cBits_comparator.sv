@@ -52,7 +52,7 @@ module nBits_comparator #(parameter n=4)(
     //assign resetSignal  = ~(count==flipTrig);
     
     
-    always_ff@(negedge clk, negedge reset) begin
+    always_ff@(posedge clk, negedge reset) begin
        
        if(!reset)begin 
             signal<=0;

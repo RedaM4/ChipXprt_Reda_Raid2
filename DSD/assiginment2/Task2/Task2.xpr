@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="40" Path="/home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.xpr">
+<Project Version="7" Minor="40" Path="/home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="72b753a0421742a49472bbc56b7bef51"/>
@@ -32,7 +32,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="arty-a7-100"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="48"/>
+    <Option Name="WTXSimLaunchSim" Val="63"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -62,7 +62,7 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/imports/VGA_FILES/vga_controller.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../VGA_FILES/vga_controller.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Chipxprt_Reda_Raid/DSD/assignment2/VGA_FILES/vga_controller.v"/>
           <Attr Name="ImportTime" Val="1733390138"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -130,7 +130,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/VGA_FILES/vga_core.sv">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../VGA_FILES/vga_core.sv"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Chipxprt_Reda_Raid/DSD/assignment2/VGA_FILES/vga_core.sv"/>
           <Attr Name="ImportTime" Val="1733390138"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -139,7 +139,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/VGA_FILES/video_memory.sv">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../VGA_FILES/video_memory.sv"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Chipxprt_Reda_Raid/DSD/assignment2/VGA_FILES/video_memory.sv"/>
           <Attr Name="ImportTime" Val="1733390138"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

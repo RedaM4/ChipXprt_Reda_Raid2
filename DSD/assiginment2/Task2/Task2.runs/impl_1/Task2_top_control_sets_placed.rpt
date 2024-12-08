@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Thu Dec  5 05:34:24 2024
+| Date         : Sun Dec  8 06:04:47 2024
 | Host         : Raid-ThinkTank running 64-bit Linux Mint 22
 | Command      : report_control_sets -verbose -file Task2_top_control_sets_placed.rpt
 | Design       : Task2_top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |   311 |
-|    Minimum number of control sets                        |   311 |
+| Total control sets                                       |   308 |
+|    Minimum number of control sets                        |   308 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    53 |
+| Unused register locations in slices containing registers |    30 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,14 +39,14 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |   311 |
-| >= 0 to < 4        |     7 |
-| >= 4 to < 6        |   300 |
+| Total control sets |   308 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |   301 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     1 |
-| >= 10 to < 12      |     1 |
+| >= 10 to < 12      |     2 |
 | >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     0 |
+| >= 14 to < 16      |     1 |
 | >= 16              |     1 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               2 |            1 |
-| No           | No                    | Yes                    |              79 |           49 |
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |             104 |           45 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              10 |            6 |
+| Yes          | No                    | Yes                    |              10 |            3 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,320 +70,317 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------------------------------+-------------------------------------------+-------------------------------+------------------+----------------+
-|                  Clock Signal                  |               Enable Signal               |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
-+------------------------------------------------+-------------------------------------------+-------------------------------+------------------+----------------+
-|  clkd1/comp1/signal_reg_0                      |                                           | core1/vga_timing/AR[0]        |                1 |              1 |
-| ~CLK100MHZ_IBUF_BUFG                           |                                           | core1/vga_timing/AR[0]        |                1 |              2 |
-|  CLK100MHZ_IBUF_BUFG                           |                                           | clkd1/comp1/resetSignal_reg_0 |                1 |              2 |
-|  CLK100MHZ_IBUF_BUFG                           |                                           | core1/vga_timing/AR[0]        |                2 |              2 |
-| ~clkd1/dff1/newClk                             |                                           | core1/vga_timing/AR[0]        |                2 |              2 |
-|  fsm1/FSM_sequential_next_state_reg[1]_i_2_n_0 |                                           |                               |                1 |              2 |
-|  clkd1/dff1/newClk                             |                                           | core1/vga_timing/AR[0]        |                2 |              3 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_2                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_16       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_11       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_17       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_10       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_1        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_0        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_99               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_96               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_93               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_206              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_205              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_204              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_203              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_202              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_201              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_200              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_20               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_17       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_6        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_165              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_16       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_15       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_14       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_13       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_12       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_11       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_9        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_7        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_19       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_5        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_4        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_3        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_23       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_22       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_21       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_20       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_2        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_172              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_180              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_18               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_179              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_178              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_177              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_176              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_175              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_174              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_173              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_181              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_171              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_170              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_17               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_169              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_168              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_167              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_166              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_161              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_19               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_198              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_197              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_196              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_195              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_194              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_193              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_192              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_191              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_190              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_199              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_189              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_188              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_187              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_186              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_185              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_184              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_183              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_182              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_9        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11456_11519_0_2_i_2   |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_3 |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_2 |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_1 |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_0 |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2   |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11072_11135_0_2_i_2_1 |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11072_11135_0_2_i_2_0 |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_11072_11135_0_2_i_2   |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_1280_1343_0_2_i_2     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_8        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_7        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_6        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_5        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_4        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_32       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_31       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_30       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_6     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_448_511_0_2_i_4_0     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_384_447_0_2_i_2_2     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_384_447_0_2_i_2_1     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_384_447_0_2_i_2_0     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_384_447_0_2_i_2       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_4_2     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_4_1     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_4_0     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_4       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_3        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_5     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_4     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_3     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_2     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_1     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3_0     |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_192_255_0_2_i_3       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_1280_1343_0_2_i_2_0   |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_26       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_9                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_89               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_88               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_87               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_86               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_36       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_35       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_34       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_33       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_90               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_25       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_24       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_23       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_22       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_21       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_20       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_2        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_19       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_14       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_29       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_28       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_27       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_10       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_1        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_0        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_8        |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_18       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_15       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_9_18       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_13       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/ram_reg_0_63_0_2_i_7_12       |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_98               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_97               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_95               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_94               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_92               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_91               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_43               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_49               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_5                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_53               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_52               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_51               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_50               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_46               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_47               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_48               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_56               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_44               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_45               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_40               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_41               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_42               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_38               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_39               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_4                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_61               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_67               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_7                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_69               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_68               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_63               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_66               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_65               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_64               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_35               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_62               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_60               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_57               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_6                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_59               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_58               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_54               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_55               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_144              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_210              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_21               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_209              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_208              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_146              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_207              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_147              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_148              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_143              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_211              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_145              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_103              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_106              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_142              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_102              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_101              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_100              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_10               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_29               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_36               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_37               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_32               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_33               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_34               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_31               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_30               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_3                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_163              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_28               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_27               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_26               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_25               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_24               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_23               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_22               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_212              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_131              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_14               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_139              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_138              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_137              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_136              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_135              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_134              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_133              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_132              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_140              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_130              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_13               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_129              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_128              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_127              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_126              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_125              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_124              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_155              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_164              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_162              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_160              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_16               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_159              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_158              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_157              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_156              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_72               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_154              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_153              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_152              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_151              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_150              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_15               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_149              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_141              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_8                |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_105              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_104              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_83               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_85               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_84               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_81               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_82               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_80               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_77               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_122              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_79               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_78               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_73               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_75               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_76               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_74               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_71               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_70               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_108              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_123              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_121              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_120              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_12               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_119              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_118              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_117              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_116              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_115              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_114              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_113              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_112              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_111              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_110              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_11               |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_109              |                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                           | dp1/upCntr2/count_reg[0]_107              |                               |                1 |              4 |
-|  dp1/cmpX/signalX                              |                                           | dp1/cmpY/signal_reg_0         |                4 |              7 |
-|  fsm1/clk0                                     |                                           | dp1/cmpX/signal_reg_0         |                2 |              8 |
-|  w_25MHz_BUFG                                  | core1/vga_timing/v_count                  | core1/vga_timing/AR[0]        |                6 |             10 |
-|  w_25MHz_BUFG                                  |                                           | core1/vga_timing/AR[0]        |               34 |             52 |
-+------------------------------------------------+-------------------------------------------+-------------------------------+------------------+----------------+
++---------------------------------------------+-------------------------------------------+-------------------------------+------------------+----------------+
+|                 Clock Signal                |               Enable Signal               |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
++---------------------------------------------+-------------------------------------------+-------------------------------+------------------+----------------+
+|  clkd1/comp1/signal_reg_0                   |                                           | core1/vga_timing/AR[0]        |                1 |              1 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_24       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_32       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_31       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_30       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_3        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_29       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_28       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_27       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_26       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_25       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_34       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_23       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_22       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_21       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_20       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_16       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_15       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_13       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_12       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_141              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_15               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_149              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_148              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_147              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_146              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_145              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_144              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_143              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_142              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_33       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_140              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_14               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_139              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_138              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_137              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_136              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_35       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_10       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_200              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_209              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_208              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_207              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_206              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_205              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_204              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_203              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_202              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_201              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_21               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_20               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_1280_1343_0_2_i_2_0   |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_1280_1343_0_2_i_2     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11456_11519_0_2_i_2   |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_3 |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_2 |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_1 |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2_0 |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_2        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_150              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_1        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_0        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_9        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_8        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_7        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_5        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_4        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_20       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_11       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_19       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_18       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_13       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_10       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_22               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_212              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_211              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_210              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_199              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_120              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_12               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_119              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_118              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_117              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_116              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_115              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_114              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_2                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_121              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_198              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_197              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_196              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_195              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_194              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_193              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_192              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_191              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_13               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_95               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_94               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_93               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_135              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_134              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_133              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_132              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_131              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_130              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_190              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_129              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_128              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_127              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_126              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_125              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_124              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_123              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_122              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_165              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_173              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_172              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_171              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_170              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_17               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_169              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_168              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_167              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_166              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_174              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_164              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_163              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_162              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_161              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_160              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_16               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_159              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_158              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_182              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_19               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_189              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_188              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_187              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_186              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_185              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_184              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_183              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11072_11135_0_2_i_2_1 |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_181              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_180              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_18               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_179              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_178              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_177              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_176              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_175              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_39               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_5                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_45               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_46               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_47               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_42               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_43               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_44               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_40               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_41               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_49               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_38               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_37               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_36               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_35               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_34               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_33               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_32               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_31               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_59               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_66               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_65               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_61               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_62               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_63               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_56               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_57               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_60               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_6                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_30               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_58               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_53               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_54               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_55               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_50               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_51               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_52               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_48               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_108              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_153              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_154              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_112              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_113              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_151              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_111              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_110              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_11               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_109              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_102              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_107              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_106              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_104              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_103              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_96               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_97               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_98               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_99               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_23               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_3                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_29               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_28               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_27               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_26               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_25               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_24               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_155              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_67               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_156              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_157              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_152              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_10               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_100              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_105              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_101              |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_4                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_448_511_0_2_i_4_0     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_21       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_17       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_16       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_15       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_14       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_12       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_11       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_1        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_0        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_22       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_384_447_0_2_i_2_2     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_384_447_0_2_i_2_1     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_384_447_0_2_i_2_0     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_384_447_0_2_i_2       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_4_2     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_4_1     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_4_0     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_4       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_36       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11136_11199_0_2_i_2   |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11072_11135_0_2_i_2_0 |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_11072_11135_0_2_i_2   |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_9        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_8        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_7        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_6        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_5        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_4        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_6     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_2        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_19       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_18       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_17       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_9_14       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_6        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_3        |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_0_63_0_2_i_7_23       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_75               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_82               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_83               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_81               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_79               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_8                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_78               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_74               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_77               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_76               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_80               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_70               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_73               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_72               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_71               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_69               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_7                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_68               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_64               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_92               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_5     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_4     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_3     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_2     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_1     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3_0     |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/ram_reg_192_255_0_2_i_3       |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_90               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_91               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_89               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_9                |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_88               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_84               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_87               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_86               |                               |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                        | dp1/upCntr2/count_reg[0]_85               |                               |                1 |              4 |
+|  clkd1/dff1/newClk                          |                                           | core1/vga_timing/AR[0]        |                3 |              5 |
+|  dp1/cmpX/signalX                           |                                           | dp1/cmpY/signal_reg_0         |                3 |              7 |
+|  fsm1/FSM_sequential_current_state_reg[0]_0 |                                           | dp1/cmpX/signal_reg_0         |                2 |              8 |
+|  core1/vga_timing/w_25MHz                   | core1/vga_timing/v_count_next_1           | core1/vga_timing/AR[0]        |                3 |             10 |
+|  core1/vga_timing/w_25MHz                   |                                           | core1/vga_timing/AR[0]        |                5 |             10 |
+|  CLK100MHZ_IBUF_BUFG                        |                                           | clkd1/comp1/resetSignal_reg_0 |                4 |             14 |
+|  CLK100MHZ_IBUF_BUFG                        |                                           | core1/vga_timing/AR[0]        |               27 |             59 |
++---------------------------------------------+-------------------------------------------+-------------------------------+------------------+----------------+
 
 

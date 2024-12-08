@@ -17,36 +17,33 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-276733-Raid-ThinkTank/incrSyn
 set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.cache/wt [current_project]
-set_property parent.project_path /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.xpr [current_project]
+set_property webtalk.parent_dir /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.cache/wt [current_project]
+set_property parent.project_path /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
-set_property ip_output_repo /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.cache/ip [current_project]
+set_property ip_output_repo /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/new/Task2_dp.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/new/Task2_fsm.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/cBits_comparator.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/dFlipFlop.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/nBits_up_down_counter.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/n_2x1mux.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/new/n_clockDivider.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/VGA_FILES/vga_core.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/VGA_FILES/video_memory.sv
-  /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/new/Task2_top.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/new/Task2_dp.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/new/Task2_fsm.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/new/cBits_comparator.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/new/dFlipFlop.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/new/nBits_up_down_counter.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/new/n_2x1mux.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/new/n_clockDivider.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/VGA_FILES/vga_core.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/VGA_FILES/video_memory.sv
+  /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/new/Task2_top.sv
 }
-read_verilog -library xil_defaultlib /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/sources_1/imports/VGA_FILES/vga_controller.v
+read_verilog -library xil_defaultlib /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/sources_1/imports/VGA_FILES/vga_controller.v
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -55,8 +52,8 @@ read_verilog -library xil_defaultlib /home/cenema/Desktop/Xilinx_Projects/Chipxp
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/constrs_1/imports/M3L5.srcs/consts.xdc
-set_property used_in_implementation false [get_files /home/cenema/Desktop/Xilinx_Projects/Chipxprt_Reda_Raid/DSD/assignment2/Task2/Task2.srcs/constrs_1/imports/M3L5.srcs/consts.xdc]
+read_xdc /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/constrs_1/imports/M3L5.srcs/consts.xdc
+set_property used_in_implementation false [get_files /home/cenema/Desktop/Xilinx_Projects/ChipXprt_Reda_Raid2/DSD/assiginment2/Task2/Task2.srcs/constrs_1/imports/M3L5.srcs/consts.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
