@@ -1,0 +1,19 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /home/it/Xilinx/Vivado/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 72b753a0421742a49472bbc56b7bef51 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Task3_top_sim_behav xil_defaultlib.Task3_top_sim xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 15 for port 'write_address' [/home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/imports/vga-core-main/vga_core.sv:49]
+WARNING: [VRFC 10-3091] actual bit length 16 differs from formal bit length 15 for port 'read_address' [/home/it/chipxprt/ChipXprt_Reda_Raid2/DSD/assiginment2/Task3/Task2.srcs/sources_1/imports/vga-core-main/vga_core.sv:50]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Task3
+Compiling module xil_defaultlib.vga_controller_default
+Compiling module xil_defaultlib.video_memory
+Compiling module xil_defaultlib.vga_core
+Compiling module xil_defaultlib.Task3_top
+Compiling module xil_defaultlib.Task3_top_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Task3_top_sim_behav
