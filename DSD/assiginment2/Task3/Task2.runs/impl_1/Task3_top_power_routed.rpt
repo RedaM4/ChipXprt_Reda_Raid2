@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Sun Dec  8 15:06:10 2024
+| Date             : Mon Dec  9 17:46:26 2024
 | Host             : IT-RDIA-NSH running 64-bit Ubuntu 24.04.1 LTS
 | Command          : report_power -file Task3_top_power_routed.rpt -pb Task3_top_power_summary_routed.pb -rpx Task3_top_power_routed.rpx
 | Design           : Task3_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.122        |
+| Total On-Chip Power (W)  | 0.127        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.025        |
+| Dynamic (W)              | 0.030        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.4         |
@@ -52,18 +52,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.004 |        3 |       --- |             --- |
-| Slice Logic              |     0.004 |     2259 |       --- |             --- |
-|   LUT as Logic           |     0.003 |      728 |     63400 |            1.15 |
-|   LUT as Distributed RAM |    <0.001 |     1200 |     19000 |            6.32 |
+| Clocks                   |     0.003 |        3 |       --- |             --- |
+| Slice Logic              |     0.007 |     2299 |       --- |             --- |
+|   LUT as Logic           |     0.005 |      718 |     63400 |            1.13 |
+|   LUT as Distributed RAM |     0.002 |     1200 |     19000 |            6.32 |
 |   F7/F8 Muxes            |    <0.001 |      165 |     63400 |            0.26 |
-|   Register               |    <0.001 |      118 |    126800 |            0.09 |
-|   CARRY4                 |    <0.001 |       12 |     15850 |            0.08 |
-|   Others                 |     0.000 |        5 |       --- |             --- |
-| Signals                  |     0.016 |     1599 |       --- |             --- |
-| I/O                      |    <0.001 |       25 |       210 |           11.90 |
+|   CARRY4                 |    <0.001 |       23 |     15850 |            0.15 |
+|   Register               |    <0.001 |      123 |    126800 |            0.10 |
+|   Others                 |     0.000 |        9 |       --- |             --- |
+| Signals                  |     0.018 |     1601 |       --- |             --- |
+| I/O                      |     0.002 |       25 |       210 |           11.90 |
 | Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.122 |          |           |                 |
+| Total                    |     0.127 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.039 |       0.024 |      0.015 |
+| Vccint    |       1.000 |     0.043 |       0.028 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
+| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -142,11 +142,11 @@ Table of Contents
 +----------------+-----------+
 | Name           | Power (W) |
 +----------------+-----------+
-| Task3_top      |     0.025 |
-|   u_Task3      |     0.009 |
-|   u_vga_core   |     0.015 |
-|     vga_timing |     0.008 |
-|     video_mem  |     0.006 |
+| Task3_top      |     0.030 |
+|   u_Task3      |     0.003 |
+|   u_vga_core   |     0.024 |
+|     vga_timing |     0.007 |
+|     video_mem  |     0.016 |
 +----------------+-----------+
 
 

@@ -27,7 +27,7 @@ module Task3_top_sim;
     // Testbench Signals
     logic CPU_RESETN=0;
     logic BTNR=0;
-    logic [7:0] SWt=8'b00000000;
+    logic [7:0] SWt=8'b10000010;// 
     logic [3:0] VGA_R, VGA_G, VGA_B;
     logic VGA_HS, VGA_VS;
     logic BTNC=0;

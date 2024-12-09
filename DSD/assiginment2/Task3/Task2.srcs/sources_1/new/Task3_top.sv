@@ -54,9 +54,10 @@ logic plot ;
     // Internal wires to connect Task3 to vga_core
     wire [7:0] Xo;                         // X-coordinate output from Task3
     wire [6:0] Yo;                         // Y-coordinate output from Task3
+// logic [7:0]d ; 
 
     // Instantiate Task3
-    Task3 #(.n(8)) u_Task3 (
+    (* dont_touch = "true"*)Task3 #(.n(8)) u_Task3 (
         .clk(clk),
         .reset(reset),                    // Using resetn for Task3 reset
         .b(b),
@@ -65,9 +66,9 @@ logic plot ;
         .Yc(Yc),
         .r(r),
         .Xo(Xo),                           // Output from Task3
-        .Yo(Yo)                            // Output from Task3
+        .Yo(Yo)
+//        .d(d)                                  // Output from Task3
     );
-
     // Instantiate vga_core
     vga_core #(.MEM_INIT_FILE("default.mem")) u_vga_core (
         .clk(clk),

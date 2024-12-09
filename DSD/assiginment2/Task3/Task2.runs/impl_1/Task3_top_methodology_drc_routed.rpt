@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sun Dec  8 15:06:09 2024
+| Date         : Mon Dec  9 17:46:26 2024
 | Host         : IT-RDIA-NSH running 64-bit Ubuntu 24.04.1 LTS
 | Command      : report_methodology -file Task3_top_methodology_drc_routed.rpt -pb Task3_top_methodology_drc_routed.pb -rpx Task3_top_methodology_drc_routed.rpx
 | Design       : Task3_top
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 45
+             Violations found: 46
 +-----------+------------------+-------------------------------+------------+
 | Rule      | Severity         | Description                   | Violations |
 +-----------+------------------+-------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell   | 20         |
-| LUTAR-1   | Warning          | LUT drives async reset alert  | 1          |
+| LUTAR-1   | Warning          | LUT drives async reset alert  | 2          |
 | TIMING-18 | Warning          | Missing input or output delay | 24         |
 +-----------+------------------+-------------------------------+------------+
 
@@ -136,7 +136,12 @@ Related violations: <none>
 
 LUTAR-1#1 Warning
 LUT drives async reset alert  
-LUT cell u_vga_core/vga_timing/VGA_B_OBUF[3]_inst_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_Task3/Count_reg[0]/CLR, u_Task3/Count_reg[1]/CLR, u_Task3/Count_reg[2]/CLR, u_Task3/FSM_onehot_current_state_reg[1]/CLR, u_Task3/FSM_onehot_current_state_reg[2]/CLR, u_Task3/FSM_onehot_current_state_reg[3]/CLR, u_Task3/FSM_onehot_current_state_reg[4]/CLR, u_Task3/FSM_onehot_current_state_reg[5]/CLR, u_Task3/Xo_reg[0]/CLR, u_Task3/Xo_reg[1]/CLR, u_Task3/Xo_reg[2]/CLR, u_Task3/Xo_reg[3]/CLR, u_Task3/Xo_reg[4]/CLR, u_Task3/Xo_reg[5]/CLR, u_Task3/Xo_reg[6]/CLR (the first 15 of 118 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell u_Task3/Xo[7]_i_4, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_Task3/Count_reg[0]/CLR, u_Task3/Count_reg[1]/CLR, u_Task3/Count_reg[2]/CLR, u_Task3/FSM_sequential_current_state_reg[0]/CLR, u_Task3/FSM_sequential_current_state_reg[1]/CLR, u_Task3/FSM_sequential_current_state_reg[2]/CLR, u_Task3/Xo_reg[0]/CLR, u_Task3/Xo_reg[1]/CLR, u_Task3/Xo_reg[2]/CLR, u_Task3/Xo_reg[3]/CLR, u_Task3/Xo_reg[4]/CLR, u_Task3/Xo_reg[5]/CLR, u_Task3/Xo_reg[6]/CLR, u_Task3/Xo_reg[7]/CLR, u_Task3/Yo_reg[0]/CLR (the first 15 of 46 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell u_vga_core/vga_timing/v_count_next[0]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_vga_core/vga_timing/h_count_next_reg[0]/CLR, u_vga_core/vga_timing/h_count_next_reg[1]/CLR, u_vga_core/vga_timing/h_count_next_reg[2]/CLR, u_vga_core/vga_timing/h_count_next_reg[3]/CLR, u_vga_core/vga_timing/h_count_next_reg[4]/CLR, u_vga_core/vga_timing/h_count_next_reg[5]/CLR, u_vga_core/vga_timing/h_count_next_reg[6]/CLR, u_vga_core/vga_timing/h_count_next_reg[7]/CLR, u_vga_core/vga_timing/h_count_next_reg[8]/CLR, u_vga_core/vga_timing/h_count_next_reg[9]/CLR, u_vga_core/vga_timing/h_count_reg_reg[0]/CLR, u_vga_core/vga_timing/h_count_reg_reg[1]/CLR, u_vga_core/vga_timing/h_count_reg_reg[2]/CLR, u_vga_core/vga_timing/h_count_reg_reg[3]/CLR, u_vga_core/vga_timing/h_count_reg_reg[3]_rep/CLR (the first 15 of 77 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 TIMING-18#1 Warning

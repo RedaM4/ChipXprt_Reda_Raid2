@@ -26,7 +26,7 @@ module video_memory (
    begin
 //   if(write_enable) ram[write_address] <= data_in;
       if(write_enable==1) begin ram[write_address] <= data_in;  end // 100 = Red
-      else ram[read_address] <= 0;
+  //    else ram[read_address] <= 0;
 
    end
    

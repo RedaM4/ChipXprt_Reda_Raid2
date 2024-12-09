@@ -26,10 +26,12 @@ module Task3 #(parameter n=8)(
     output logic [7:0] Xo,
     output logic [6:0] Yo,
     output logic plot
+//    output   logic [n-1:0] d
 );
 
     // Internal Signals
-    logic [n-1:0] x, y, Count, d;
+    logic [n-1:0] x, y, Count;
+    logic signed [n-1:0] d;
     logic F;
     typedef enum logic [3:0] {check, more, less, comp, plotting, init, idle} state_t;
     state_t current_state, next_state;
@@ -55,7 +57,7 @@ module Task3 #(parameter n=8)(
                 next_state = (Count == 7) ? comp : plotting;
 
             comp: 
-                next_state = (d >= 0) ? more : less;
+                next_state = (d>=0) ? more : less;
 
             less, more: 
                 next_state = check;
@@ -82,20 +84,18 @@ module Task3 #(parameter n=8)(
     end
 
     // Initialization Logic for init State
-    always_ff @(posedge clk or negedge reset) begin
-        if (!reset) begin
-            x <= 0;
-            y <= 0;
-            d <= 0;
-        end else if (current_state == init) begin
-            x <= 0;
-            y <= r;
-            d <= 3 - (r << 1);
-        end else if(current_state == more)  
-           y <= y - 1;
-//          if (current_state == comp)
-//                x <= x + 1;
-    end
+//    always_ff @(posedge clk or negedge reset) begin
+//        if (!reset) begin
+//            y <= 0;
+////            d <= 0;
+//        end else if (current_state == init) begin
+//           // x <= 0;
+//            y <= r;
+//        end else if(current_state == more)  
+//           y <= y - 1;
+////          if (current_state == comp)
+////                x <= x + 1;
+//    end
 
     // Plotting Logic for plotting State
     always_ff @(posedge clk or negedge reset) begin
@@ -119,26 +119,63 @@ module Task3 #(parameter n=8)(
             plot <= 0;
         end
     end
-
-    // Logic for comp, less, more, and check States
-    always_ff @(posedge clk or negedge reset) begin
-        if (!reset) begin
-            F <= 0;
-        end else begin
-            if (current_state == comp)
+// Sequential logic for x and y
+always_ff @(posedge clk or negedge reset) begin
+    if (!reset) begin
+        x <= 0;
+        y <= 0;
+    end else begin
+        case (current_state)
+            comp: begin
                 x <= x + 1;
-
-            if (current_state == less)
-                d <= d + (x << 2) + 6;
-
-            if (current_state == more) begin
-                d <= d + ((x - y) << 2) + 10;
-            
             end
 
-            if (current_state == less || current_state == more)
-                F <= (x > y) ? 1 : 0;
-        end
+            init: begin
+                x <= 0;
+                y <= r;
+            end
+
+            more: begin
+                y <= y - 1;
+            end
+
+            default: begin
+                x <= x; // Maintain previous value
+                y <= y; // Maintain previous value
+            end
+        endcase
     end
+end
+
+// Sequential logic for d
+always_ff @(posedge clk or negedge reset) begin
+    if (!reset) begin
+        d<= 0;
+    end else begin
+        case (current_state)
+            init: begin
+                d <= 3 - (r << 1);
+            end
+
+            less: begin
+                d <= d + (x << 2) + 6;
+            end
+
+            more: begin
+                d <= d + ((x - y) << 2) + 10;
+            end
+
+            default: begin
+                d <= d; // Maintain previous value
+            end
+        endcase
+    end
+end
+
+
+
+
+assign F = (x > y) ;
+
 
 endmodule
